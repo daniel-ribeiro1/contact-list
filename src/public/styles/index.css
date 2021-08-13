@@ -49,6 +49,17 @@ body {
     color: var(--blue);
 }
 
+/* ---- Footer ---- */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 1.5rem;
+}
+
 @media screen and (max-width: 576px) {
     /* ---- Header ---- */
     #menu {
