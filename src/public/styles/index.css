@@ -20,9 +20,13 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1.5rem;
+    padding: 0.5rem;
+}
+.container.white {
+    background-color: white;
 }
 
+/* ========== Home ========== */
 /* ---- Header ---- */
 #menu {
     display: flex;
@@ -124,20 +128,20 @@ footer {
 .favorite.add {
     color: var(--blue);
 }
-/* icon colors*/
-.icon.red {
+/* icon|banner colors */
+.icon.red, .banner.red {
     background-color: var(--red);
 }
-.icon.black {
+.icon.black, .banner.black {
     background-color: var(--black);
 }
-.icon.blue {
+.icon.blue, .banner.blue {
     background-color: var(--blue);
 }
-.icon.pink {
+.icon.pink, .banner.pink {
     background-color: var(--pink);
 }
-.icon.orange {
+.icon.orange, .banner.orange {
     background-color: var(--orange);
 }
 
@@ -146,10 +150,86 @@ footer {
     margin-top: 3rem;
 }
 
+/* ========== Contact ========== */
+/* ---- Banner ---- */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 300px;
+
+    color: white;
+    font-size: 8rem;
+}
+/* link actions */
+.link-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    min-height: 60px;
+    padding: 1rem;
+}
+.link-actions .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--black);
+
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+
+    margin-right: 1.5rem;
+}
+.link.blue {
+    color: var(--blue);
+}
+.link.red {
+    color: var(--red);
+}
+
+/* ---- Contact data ---- */
+.contact-data {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.contact-data label {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.3rem;
+    width: 100%;
+    max-width: 800px;
+
+    margin: 1rem auto;
+}
+.contact-data input {
+    height: 45px;
+    margin-top: 0.5rem;
+
+    border: 0;
+    border-bottom: 1px solid var(--black);
+    outline: 0;
+
+    text-indent: 1rem;
+    font-size: 1.2rem;
+}
 
 @media screen and (max-width: 576px) {
     body {
         font-size: 14px;
+    }
+    .container {
+        padding: 0.2rem;
     }
     /* ---- Header ---- */
     #menu {
@@ -178,4 +258,8 @@ footer {
         margin-top: 0.5rem;
     }
 
+    /* ---- link actions ---- */
+    .link-actions {
+        justify-content: space-between;
+    }
 }
