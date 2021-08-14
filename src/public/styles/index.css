@@ -7,6 +7,9 @@
 :root {
     --blue: #578AEF;
     --black: #343434;
+    --red: #CF4646;
+    --pink: #D828D1;
+    --orange: #F0831F;
 }
 
 body {
@@ -35,6 +38,8 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
+
+    color: var(--black);
 }
 #menu .logo p {
     font-size: 1.5rem;
@@ -60,7 +65,92 @@ footer {
     padding: 1.5rem;
 }
 
+/* ---- Contact ---- */
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.contact:hover {
+    background-color: rgba(68, 68, 68, 0.068);
+}
+/* info */
+.contact .info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    color: var(--black);
+}
+/* icon */
+.contact .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 80px;
+    width: 80px;
+
+    font-size: 2.5rem;
+    color: white;
+
+    border-radius: 50%;
+}
+/* data */
+.contact .data {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 1rem;
+}
+.data .name {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    margin-bottom: 0.25rem;
+}
+/* favorite */
+.favorite {
+    text-decoration: none;
+}
+.favorite.remove {
+    color: var(--red);
+}
+.favorite.add {
+    color: var(--blue);
+}
+/* icon colors*/
+.icon.red {
+    background-color: var(--red);
+}
+.icon.black {
+    background-color: var(--black);
+}
+.icon.blue {
+    background-color: var(--blue);
+}
+.icon.pink {
+    background-color: var(--pink);
+}
+.icon.orange {
+    background-color: var(--orange);
+}
+
+/* ---- Contacts ---- */
+.all-contacts {
+    margin-top: 3rem;
+}
+
+
 @media screen and (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
     /* ---- Header ---- */
     #menu {
         flex-direction: column;
@@ -68,6 +158,24 @@ footer {
     /* links */
     #menu .nav-list {
         margin-top: 1.5rem;
+    }
+    /* ---- Contact ---- */
+    .contact {
+        flex-direction: column;
+    }
+    /* info */
+    .contact .info {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    /* icon */
+    .contact .icon {
+        margin-bottom: 1rem;
+    }
+    /* favorite */
+    .contact .favorite {
+        margin-top: 0.5rem;
     }
 
 }
