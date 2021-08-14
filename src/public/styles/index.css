@@ -169,7 +169,8 @@ footer {
 /* link actions */
 .link-actions {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     min-height: 60px;
     padding: 1rem;
@@ -190,6 +191,15 @@ footer {
     background-color: transparent;
 
     margin-right: 1.5rem;
+}
+.link-actions .link.return {
+    color: rgba(0, 0, 0, 0.521);
+    margin: 1.5rem 0;
+}
+.link-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 .link.blue {
     color: var(--blue);

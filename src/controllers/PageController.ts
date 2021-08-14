@@ -7,7 +7,6 @@ export function home(req: Request, res: Response) {
 export function contact(req: Request, res: Response) {
     res.render('contact');
 }
-
 export function addContact(req: Request, res: Response) {
     res.render('addContact');
 }
