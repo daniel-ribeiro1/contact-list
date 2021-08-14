@@ -161,6 +161,10 @@ footer {
 
     color: white;
     font-size: 8rem;
+    text-align: center;
+}
+.banner.add-contact {
+    font-size: 4rem;
 }
 /* link actions */
 .link-actions {
@@ -242,6 +246,10 @@ footer {
     /* ---- Contact ---- */
     .contact {
         flex-direction: column;
+    }
+    /* banner */
+    .banner.add-contact {
+        font-size: 2rem;
     }
     /* info */
     .contact .info {
