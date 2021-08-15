@@ -15,7 +15,7 @@ export async function home(req: Request, res: Response) {
         }
     }
 
-    res.render('home', { contacts, favorites});
+    res.render('home', { contacts, favorites });
 };
 
 export async function contact(req: Request, res: Response) {
@@ -34,6 +34,7 @@ export async function contact(req: Request, res: Response) {
 
     res.render('contact', { contact });
 }
+
 export function addContact(req: Request, res: Response) {
     res.render('addContact');
 }

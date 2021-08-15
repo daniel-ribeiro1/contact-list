@@ -19,6 +19,24 @@ export async function addContactAction(req: Request, res: Response) {
     res.redirect('/');
 }
 
+export async function removeContactAction(req: Request, res: Response) {
+    const id = req.query.id;
+
+    const contact = await Contact.findOne({
+        where: {
+            id
+        }
+    });
+
+    if(!contact) {
+        res.redirect('/');
+        return;
+    }
+
+    await contact.destroy();
+    res.redirect('/');
+}
+
 export async function addContactToFavorites(req: Request, res: Response) {
     const id = req.query.id;
 
