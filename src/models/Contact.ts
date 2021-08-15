@@ -6,6 +6,7 @@ export interface ContactInstance extends Model {
     name: string;
     phone: string;
     avatar: string;
+    favorite: boolean;
     firstLetter: string;
 }
 
@@ -32,6 +33,10 @@ export const Contact = sequelize.define<ContactInstance>('contact', {
                 let randomKey = getRandomKey(colors.length);
                 this.setDataValue('avatar', colors[randomKey]);
             }
+        },
+        favorite: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
         },
         firstLetter: {
             type: DataTypes.VIRTUAL,
