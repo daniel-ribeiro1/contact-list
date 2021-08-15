@@ -24,12 +24,12 @@ export const Contact = sequelize.define<ContactInstance>('contact', {
             type: DataTypes.STRING,
             set(value) {
                 let colors = ['black', 'blue', 'pink', 'red', 'orange'];
-                let randomKey = Math.floor(Math.random() * colors.length);
 
-                if(value) {
+                if(value !== '') {
                     return;
                 }
 
+                let randomKey = getRandomKey(colors.length);
                 this.setDataValue('avatar', colors[randomKey]);
             }
         },
@@ -47,3 +47,7 @@ export const Contact = sequelize.define<ContactInstance>('contact', {
         tableName: 'contacts'
     }
 );
+
+function getRandomKey(numbersKey: number): number {
+    return Math.floor(Math.random() * numbersKey);
+}

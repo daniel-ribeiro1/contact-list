@@ -15,6 +15,9 @@ server.engine('mustache', mustache());
 server.set('views', join(__dirname, 'views'));
 server.set('view engine', 'mustache');
 
+// Urlencoded
+server.use(express.urlencoded( { extended: true } ));
+
 // Static files
 server.use(express.static(join(__dirname, 'public')));
 
