@@ -18,8 +18,21 @@ export async function home(req: Request, res: Response) {
     res.render('home', { contacts, favorites});
 };
 
-export function contact(req: Request, res: Response) {
-    res.render('contact');
+export async function contact(req: Request, res: Response) {
+    const id = req.query.id;
+
+    const contact = await Contact.findOne({
+        where: {
+            id
+        }
+    });
+
+    if(!contact) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('contact', { contact });
 }
 export function addContact(req: Request, res: Response) {
     res.render('addContact');

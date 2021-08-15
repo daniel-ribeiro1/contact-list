@@ -1,28 +1,38 @@
 {{>partials/header}}
 
-<div class="container white">
-    <div class="banner red">   
-        <p>A</p>
-    </div>
-    <form method="POST" class="contact-data"> 
-        <div class="link-actions">
-            <a href="/" class="link return">Voltar</a>
-            <div class="link-group">
-                <button type="submit" class="link blue">Salvar edição</button>
-                <a href="#" class="link">Remover dos favoritos</a>
-                <a href="#" class="link red">Apagar</a>
-            </div>
+{{#contact}} 
+    <div class="container white">
+        <div class="banner {{avatar}}">   
+            <p>{{firstLetter}}</p>
         </div>
+        <form method="POST" class="contact-data">
+            
+                <div class="link-actions">
+                    <a href="/" class="link return">Voltar</a>
+                    <div class="link-group">
+                        <button type="submit" class="link blue">Salvar edição</button>
+                        
+                        {{#favorite}}
+                            <a href="/remove-from-favorites?id={{id}}" class="link">Remover dos favoritos</a>
+                        {{/favorite}}
+                        {{^favorite}}
+                            <a href="/add-to-favorites?id={{id}}" class="link">Adicionar aos favoritos</a>
+                        {{/favorite}}
 
-        <label>
-            Nome: 
-            <input type="text" name="name"/>
-        </label>
-        <label>
-            Telefone:
-            <input type="tel" name="phone" pattern="\+([0-9]{2})( {0,}|)(\(|)[0-9]{2}(\)|)( {0,}|)([0-9]|)( {0,}|)([0-9]{4})((|-)| {0,})([0-9]{4})" placeholder="(+99) 9 9999-9999"/>
-        </label>
-    </form>
-</div>
+                        <a href="#" class="link red">Apagar</a>
+                    </div>
+                </div>
+            
+                <label>
+                    Nome: 
+                    <input type="text" name="name" value="{{name}}"/>
+                </label>
+                <label>
+                    Telefone:
+                    <input type="tel" value="{{phone}}" name="phone" pattern="\+([0-9]{2})( {0,}|)(\(|)[0-9]{2}(\)|)( {0,}|)([0-9]|)( {0,}|)([0-9]{4})((|-)| {0,})([0-9]{4})" placeholder="(+99) 9 9999-9999"/>
+                </label>
+        </form>
+    </div>
+{{/contact}}
 
 {{>partials/footer}}
