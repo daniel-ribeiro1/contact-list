@@ -19,6 +19,34 @@ export async function addContactAction(req: Request, res: Response) {
     res.redirect('/');
 }
 
+export async function updateContactAction(req: Request, res: Response) {
+    const id = req.body.id;
+    let newName = req.body.name;
+    let newPhone = req.body.phone;
+
+    const contact = await Contact.findOne({
+        where: {
+            id
+        }
+    })
+
+    if(!contact) {
+        res.redirect('/');
+        return;
+    }
+
+    if(!newPhone || !newName) {
+        res.redirect('/contact?id=' + id);
+        return;
+    }
+
+    contact.name = newName;
+    contact.phone = newPhone;
+    await contact.save();
+
+    res.redirect('/contact?id=' + id);
+}
+
 export async function removeContactAction(req: Request, res: Response) {
     const id = req.query.id;
 
