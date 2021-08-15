@@ -5,34 +5,50 @@
         <h2>Favoritos</h2>
         <hr/>
 
-        <div class="contact">
-            <a href="#info" class="info"> 
-                <div class="icon blue">A</div>
+        {{#favorites}}
+            <div class="contact">
+                <a href="#info" class="info"> 
+                    <div class="icon {{avatar}}">{{firstLetter}}</div>
 
-                <div class="data">
-                    <p class="name">Albana Turner</p>
-                    <p class="phone">(+55) 63 99287-3421</p>
-                </div>
-            </a>
-            <a href="#remove" class="favorite remove">Remover dos favoritos</a>
-        </div>
+                    <div class="data">
+                        <p class="name">{{name}}</p>
+                        <p class="phone">{{phone}}</p>
+                    </div>
+                </a>
+                
+                    <a href="/remove-from-favorites?id={{id}}" class="favorite remove">Remover dos favoritos</a>
+            </div>
+        {{/favorites}}
+        {{^favorites}} 
+            <p class="no-data">Nenhum contato foi adicionado aos favoritos ainda...</p>
+        {{/favorites}}
+
     </div>
     <div class="all-contacts">
         <h2>Todos os contatos</h2>
         <hr/>
 
-        <div class="contact">
-            <a href="#info" class="info"> 
-                <div class="icon blue">A</div>
+        {{#contacts}}
+            <div class="contact">
+                <a href="#info" class="info"> 
+                    <div class="icon {{avatar}}">{{firstLetter}}</div>
 
-                <div class="data">
-                    <p class="name">Albana Turner</p>
-                    <p class="phone">(+55) 63 99287-3421</p>
-                </div>
-            </a>
-            <a href="#remove" class="favorite remove">Remover dos favoritos</a>
-        </div>
-    </div>
+                    <div class="data">
+                        <p class="name">{{name}}</p>
+                        <p class="phone">{{phone}}</p>
+                    </div>
+                </a>
+                {{#favorite}}
+                    <a href="/remove-from-favorites?id={{id}}" class="favorite remove">Remover dos favoritos</a>
+                {{/favorite}}
+                {{^favorite}}
+                     <a href="/add-to-favorites?id={{id}}" class="favorite add">Adicionar aos favoritos</a>
+                {{/favorite}}
+            </div>
+        {{/contacts}}
+        {{^contacts}}
+            <p class="no-data">Nenhum contato adicionado ainda...</p>
+        {{/contacts}}
 <div>
 
 {{>partials/footer}}

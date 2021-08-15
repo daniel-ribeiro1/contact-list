@@ -37,6 +37,15 @@ export const Contact = sequelize.define<ContactInstance>('contact', {
         favorite: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
+            get() {
+                const thisValue = this.getDataValue('favorite');
+
+                if(thisValue === '1') {
+                    return true;
+                }
+
+                return false;
+            }
         },
         firstLetter: {
             type: DataTypes.VIRTUAL,
